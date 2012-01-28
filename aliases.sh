@@ -10,7 +10,7 @@ alias dvdburn="cdrecord --verbose --eject dev=/dev/sr0"
 alias grep="grep --colour=auto"
 alias jbos=jobs
 alias less="less -RM"
-alias ls="ls --color"
+alias ls="ls --color=auto"
 alias myrip="rip -c -f \"%A - %S\" -O -n -T"
 alias notify-rob="xmpp-notify.pl -c ~/.notifyrob.yaml"
 alias perldoc="LANG=en_US perldoc"
