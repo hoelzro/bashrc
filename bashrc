@@ -6,6 +6,7 @@ fi
 # Shell options
 shopt -s autocd
 shopt -s cdspell
+shopt -s checkhash
 shopt -s checkwinsize
 shopt -s cmdhist
 shopt -s dirspell
@@ -43,5 +44,7 @@ fi
 if [ which setup-bash-complete 2>/dev/null ]; then
     setup-bash-complete
 fi
+
+set -o noclobber
 
 ls_limited
