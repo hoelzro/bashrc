@@ -83,3 +83,15 @@ function pb
         perlbrew use "$matches"
     fi
 }
+
+function knock {
+    for port in $2 $3 $4; do
+        nc $1 $port
+        sleep 1
+    done
+}
+
+function ov {
+    sudo openvpn "/etc/openvpn/$1.conf"
+}
+
