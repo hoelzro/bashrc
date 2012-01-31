@@ -19,14 +19,16 @@ function __prompt
     local wd=$(pwd)
     wd=${wd/$HOME/\~}
 
-    local cyan="\033[36m"
-    local green="\033[32m"
-    local blue="\033[34m"
-    local reset="\033[0m"
-    local red="\033[31m"
-    local bold="\033[;1m"
+    local cyan="\[\033[36m\]"
+    local green="\[\033[32m\]"
+    local blue="\[\033[34m\]"
+    local reset="\[\033[0m\]"
+    local red="\[\033[31m\]"
+    local bold="\[\033[;1m\]"
 
     local status_color
+
+    PS1=''
 
     if git status &>/dev/null; then
         if git status -uno -s | grep -q . ; then
@@ -36,16 +38,17 @@ function __prompt
         fi
 
         local branch=$(git branch --color=never | sed -ne 's/* //p')
-        echo -ne "[$bold$status_color$branch$reset] "
+        PS1="$PS1[$bold$status_color$branch$reset] "
     fi
-    echo -e "$cyan[$time] $green$user@$host $blue$wd \$ $reset"
+    PS1="$PS1$cyan[$time] $green$user@$host $blue$wd \$ $reset"
 }
 
 if ${use_color} ; then
     if [[ ${EUID} == 0 ]] ; then
         PS1='\[\033[31m\]\h \[\033[34m\]\W \$ \[\033[00m\]'
     else
-        PS1='$(__prompt)'
+        PROMPT_COMMAND="$PROMPT_COMMAND ; __prompt"
+        __prompt
     fi
 else
     if [[ ${EUID} == 0 ]] ; then
