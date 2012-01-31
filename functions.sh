@@ -23,8 +23,6 @@ function check_perlbrew_lib
         else
             echo -e "\033[33mperlbrew lib '$lib' not found\033[0m" >&2
         fi
-    else
-        perlbrew use "$PERLBREW_PERL"
     fi
 }
 
