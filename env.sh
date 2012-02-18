@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export BROWSER="chromium"
+export BROWSER="firefox"
 export DBIC_TRACE_PROFILE=console
 export DEVEL_REPL_PROFILE=Rob
 export EDITOR=vim
