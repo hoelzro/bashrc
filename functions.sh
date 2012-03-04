@@ -26,14 +26,6 @@ function check_perlbrew_lib
     fi
 }
 
-function minicpan
-{
-    (
-        perlbrew use @minicpan
-        command minicpan
-    )
-}
-
 declare -a __dir_changed_hooks
 
 function run_dir_changed_hooks
