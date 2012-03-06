@@ -25,4 +25,9 @@ export PERLDOC_PAGER=man-pager
 export PERL_CPANM_OPT="--mirror file://$HOME/minicpan --mirror http://mirror.sit.wisc.edu/pub/CPAN/ --mirror http://cpan.cpantesters.org/"
 export PGUSER=postgres
 export WINEARCH=win32
-PROMPT_COMMAND="$PROMPT_COMMAND ; history -a"
+
+if [[ -z "$PROMPT_COMMAND" ]]; then
+    PROMPT_COMMAND="history -a"
+else
+    PROMPT_COMMAND="$PROMPT_COMMAND ; history -a"
+fi
