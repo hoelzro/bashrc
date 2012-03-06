@@ -9,6 +9,10 @@ else
     __LS_FLAGS='--color=auto'
 fi
 
+if which brew &>/dev/null; then # if Homebrew is installed
+    __BREW_ROOT=$(brew --prefix)
+fi
+
 # Shell options
 shopt -s cdspell
 shopt -s checkhash
@@ -30,13 +34,15 @@ fi
 # Programmable completion
 if [[ -e /etc/bash_completion ]]; then
     source /etc/bash_completion
-elif [[ -e /opt/local/etc/bash_completion ]]; then
-    source /opt/local/etc/bash_completion
+elif [[ ! -z "$__BREW_ROOT" ]] && [[ -e "$__BREW_ROOT/etc/bash_completion" ]]; then
+    source $__BREW_ROOT/etc/bash_completion
 fi
 
 # Autojump
 if [[ -e /etc/profile.d/autojump.bash ]]; then
     source /etc/profile.d/autojump.bash
+elif [[ ! -z "$__BREW_ROOT" ]] && [[ -e "$__BREW_ROOT/etc/autojump.bash" ]]; then
+    source $__BREW_ROOT/etc/autojump.bash
 fi
 
 source ~/.bashrc_scripts/colors.sh
