@@ -47,7 +47,11 @@ if ${use_color} ; then
     if [[ ${EUID} == 0 ]] ; then
         PS1='\[\033[31m\]\h \[\033[34m\]\W \$ \[\033[00m\]'
     else
-        PROMPT_COMMAND="$PROMPT_COMMAND ; __prompt"
+        if [[ -z "$PROMPT_COMMAND" ]]; then
+            PROMPT_COMMAND=__prompt
+        else
+            PROMPT_COMMAND="$PROMPT_COMMAND ; __prompt"
+        fi
         __prompt
     fi
 else
