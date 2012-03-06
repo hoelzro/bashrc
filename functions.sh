@@ -7,9 +7,9 @@ function ls_limited()
     if test $file_count -gt $LS_LIMIT
     then
 	echo "Over $LS_LIMIT files were found; listing the first $LS_LIMIT"
-	ls --color=always | head -$LS_LIMIT
+	ls $__LS_FLAGS | head -$LS_LIMIT
     else
-	ls --color=always
+	ls $__LS_FLAGS
     fi
 }
 

@@ -3,6 +3,12 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+if [[ $(uname) == 'Darwin' ]]; then # if we're on OS X
+    __LS_FLAGS='-G'
+else
+    __LS_FLAGS='--color=auto'
+fi
+
 # Shell options
 shopt -s cdspell
 shopt -s checkhash
