@@ -4,14 +4,17 @@ if [[ $- != *i* ]] ; then
 fi
 
 # Shell options
-shopt -s autocd
 shopt -s cdspell
 shopt -s checkhash
 shopt -s checkwinsize
 shopt -s cmdhist
-shopt -s dirspell
 shopt -s extglob
 shopt -s histappend
+
+if [[ ${BASH_VERSINFO[0]} -ge 4 ]]; then
+    shopt -s autocd
+    shopt -s dirspell
+fi
 
 # Perlbrew
 if [[ -e ~/.perlbrew/etc/bashrc ]]; then
