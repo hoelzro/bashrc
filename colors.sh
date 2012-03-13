@@ -1,15 +1,7 @@
 #!/bin/bash
 
-use_color=false
+use_color=true
 safe_term=${TERM//[^[:alnum:]]/.}
-
-if [[ -f /etc/DIR_COLORS ]] ; then
-    grep -q "^TERM ${safe_term}" /etc/DIR_COLORS && use_color=true
-elif type -p dircolors >/dev/null ; then
-    if dircolors --print-database | grep -q "^TERM ${safe_term}" ; then
-        use_color=true
-    fi
-fi
 
 function __prompt
 {
