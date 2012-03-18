@@ -13,19 +13,6 @@ function ls_limited()
     fi
 }
 
-function check_perlbrew_lib
-{
-    if [[ -e .perlbrew-lib ]]; then
-        local lib=$(cat .perlbrew-lib)
-
-        if perlbrew list | grep --quiet --fixed-strings "$PERLBREW_PERL@$lib"; then
-            perlbrew use "@$lib"
-        else
-            echo -e "\033[33mperlbrew lib '$lib' not found\033[0m" >&2
-        fi
-    fi
-}
-
 declare -a __dir_changed_hooks
 
 function run_dir_changed_hooks
@@ -42,7 +29,6 @@ function add_dir_changed_hook
 }
 
 add_dir_changed_hook ls_limited
-add_dir_changed_hook check_perlbrew_lib
 
 cd() {
     builtin cd "$@" && run_dir_changed_hooks
