@@ -56,8 +56,8 @@ if [[ -e ~/.bashrc_scripts/local.sh ]]; then
 fi
 
 # Bash::Completion plugins
-if [ which setup-bash-complete 2>/dev/null ]; then
-    setup-bash-complete
+if which setup-bash-complete &>/dev/null ; then
+    . setup-bash-complete
 fi
 
 set -o noclobber
