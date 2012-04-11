@@ -2,7 +2,6 @@
 
 export BROWSER="firefox"
 export DBIC_TRACE_PROFILE=console
-export DEVEL_REPL_PROFILE=Rob
 export EDITOR=vim
 export EMAIL='rob@hoelz.ro'
 export GIT_AUTHOR_NAME='Rob Hoelz'
