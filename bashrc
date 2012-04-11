@@ -31,6 +31,12 @@ if [[ -e ~/.perlbrew/etc/bashrc ]]; then
     source ~/.perlbrew/etc/bashrc
 fi
 
+# RVM
+if [[ -e ~/.rvm/scripts/rvm ]]; then
+    source ~/.rvm/scripts/rvm
+    alias rvm="PAGER=less rvm"
+fi
+
 # Programmable completion
 if [[ -e /etc/bash_completion ]]; then
     source /etc/bash_completion
