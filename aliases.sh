@@ -15,6 +15,7 @@ alias myrip="rip -c -f \"%A - %S\" -O -n -T"
 alias notify-rob="xmpp-notify.pl -c ~/.notifyrob.yaml"
 alias perldoc="LANG=en_US perldoc"
 alias xmltidy='tidy -xml -i 2>/dev/null'
+alias tree='tree -C'
 
 if echo "$TERM" | grep -q -P '.*-256color' ; then
     alias tmux='tmux -2'
