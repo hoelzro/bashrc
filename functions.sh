@@ -31,7 +31,34 @@ function add_dir_changed_hook
 add_dir_changed_hook ls_limited
 
 cd() {
-    builtin cd "$@" && run_dir_changed_hooks
+    if [[ $1 == '-' ]]; then
+        local length=${#__directory_ring[*]}
+        if [[ $length -gt 0 ]] ; then
+            local last_directory=${__directory_ring[$(( $length - 1 ))]}
+            unset __directory_ring[$(( $length - 1 ))]
+
+            builtin cd "$last_directory"
+        else
+            echo "Directory ring is empty."
+        fi
+    else
+        if builtin cd "$@" ; then
+            local length
+
+            length=${#__directory_ring[*]}
+            __directory_ring[$length]="$OLDPWD"
+            length=$(( $length + 1 ))
+
+            if [[ $length -gt 5 ]]; then
+                for i in $(seq 0 $(( $length - 2 )) ) ; do
+                    __directory_ring[$i]="${__directory_ring[$(( $i + 1 ))]}"
+                done
+                unset __directory_ring[$(( $length - 1 ))]
+            fi
+
+            run_dir_changed_hooks
+        fi
+    fi
 }
 
 pushd() {
