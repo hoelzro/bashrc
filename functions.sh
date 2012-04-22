@@ -42,24 +42,6 @@ popd() {
     builtin popd "$@" && run_dir_changed_hooks
 }
 
-function pb
-{
-    local matches
-    local line_count
-
-    matches=$(perlbrew lib list | grep "@$1")
-    line_count=$(echo "$matches" | wc -l)
-
-    if [[ $line_count -gt 1 ]]; then
-        echo "Ambiguous:"
-        echo "$matches"
-    elif [[ $line_count -eq 0 ]]; then
-        echo "No matches"
-    else
-        perlbrew use "$matches"
-    fi
-}
-
 function knock {
     for port in $2 $3 $4; do
         nc $1 $port
