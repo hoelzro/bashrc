@@ -1,6 +1,5 @@
 #!/bin/bash
 
-alias ack2="$HOME/bin/ack2 --noenv --ackrc=$HOME/.ack2rc"
 alias cdblank="cdrecord --verbose dev=/dev/sr0 blank=fast"
 alias cdburn="cdrecord --verbose --eject dev=/dev/sr0 driveropts=burnfree"
 alias clyde='clyde --color'
