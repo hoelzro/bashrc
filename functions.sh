@@ -80,3 +80,8 @@ function ov {
     sudo openvpn "/etc/openvpn/$1.conf"
 }
 
+# I often type this by mistake instead of !p
+function 1p {
+    eval $(history -p '!p')
+}
+
