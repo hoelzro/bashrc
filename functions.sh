@@ -38,6 +38,7 @@ cd() {
             unset __directory_ring[$(( $length - 1 ))]
 
             builtin cd "$last_directory"
+            run_dir_changed_hooks
         else
             echo "Directory ring is empty."
         fi
