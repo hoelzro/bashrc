@@ -42,6 +42,10 @@ cd() {
         else
             echo "Directory ring is empty."
         fi
+    elif [[ $1 =~ ^hoelzro: && ! -d $1 ]]; then
+        cd ${1/hoelzro:/}
+    elif [[ $1 =~ github:.*/ && ! -d $1 ]]; then
+        cd ${1/github:*\//}
     else
         if builtin cd "$@" ; then
             local length
