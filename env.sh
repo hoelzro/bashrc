@@ -11,6 +11,7 @@ export GIT_COMMITTER_EMAIL='rob@hoelz.ro'
 export HISTFILESIZE=25000
 export HISTIGNORE="exit"
 export HISTSIZE=1000
+export HISTTIMEFORMAT='%F %T '
 export LUA_HISTORY=~/.luahist
 export LUA_HISTSIZE=100
 export LUA_INIT="@$HOME/.luarc"
