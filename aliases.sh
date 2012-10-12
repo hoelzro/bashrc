@@ -18,12 +18,16 @@ alias perldoc="LANG=en_US perldoc"
 alias xmltidy='tidy -xml -i 2>/dev/null'
 alias tree='tree -C'
 
+alias gd='git diff'
 alias gf='git fetch'
 alias gff='git ff'
 alias ga='git add'
 alias gap='git add -p'
 alias gc='git commit'
 alias gcv='git commit -v'
+alias gs='git status'
+alias gsh='git show'
+alias gt=tig
 
 if echo "$TERM" | grep -q -P '.*-256color' ; then
     alias tmux='tmux -2'
