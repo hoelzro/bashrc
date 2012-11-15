@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export BROWSER="firefox"
+export BROWSER="open-browser"
 export DBIC_TRACE_PROFILE=console
 export EDITOR=vim
 export EMAIL='rob@hoelz.ro'
