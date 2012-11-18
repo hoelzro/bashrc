@@ -45,7 +45,9 @@ elif [[ ! -z "$__BREW_ROOT" ]] && [[ -e "$__BREW_ROOT/etc/bash_completion" ]]; t
 fi
 
 # Autojump
-if [[ -e /etc/profile.d/autojump.bash ]]; then
+if [[ -e /usr/etc/profile.d/autojump.bash ]]; then
+    source /usr/etc/profile.d/autojump.bash
+elif [[ -e /etc/profile.d/autojump.bash ]]; then
     source /etc/profile.d/autojump.bash
 elif [[ ! -z "$__BREW_ROOT" ]] && [[ -e "$__BREW_ROOT/etc/autojump.bash" ]]; then
     source $__BREW_ROOT/etc/autojump.bash
