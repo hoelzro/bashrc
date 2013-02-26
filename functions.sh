@@ -90,3 +90,6 @@ function 1p {
     eval $(history -p '!p')
 }
 
+function e {
+    env | grep -i $1 | sort
+}
