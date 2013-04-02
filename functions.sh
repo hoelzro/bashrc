@@ -93,3 +93,20 @@ function 1p {
 function e {
     env | grep -i $1 | sort
 }
+
+function man {
+    local size
+    local columns
+    local old_options
+
+    old_options=$BASHOPTS
+    shopt -s extglob
+    size=$(stty size </dev/tty)
+    columns=${size##+([0-9])}
+    export MANWIDTH=$(( $columns - 5 ))
+    command man "$@"
+
+    if [[ ! $old_options =~ 'extglob' ]]; then
+        shopt -s extglob
+    fi
+}
