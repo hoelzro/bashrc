@@ -9,6 +9,7 @@ export GIT_AUTHOR_EMAIL='rob@hoelz.ro'
 export GIT_COMMITTER_NAME='Rob Hoelz'
 export GIT_COMMITTER_EMAIL='rob@hoelz.ro'
 export GOPATH="$HOME/.local/share/go-deps:$HOME/projects/gocode"
+export HISTFILE="$HOME/.bash_history"
 export HISTFILESIZE=25000
 export HISTIGNORE="exit"
 export HISTSIZE=1000
